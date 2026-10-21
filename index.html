@@ -184,10 +184,11 @@ a.btn.btn-gold{color:var(--on-gold)}
 .setup{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}
 .setup ol{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:28px}
 .setup ol li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:18px}
-.setup ol li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line-light);font-family:var(--display);font-weight:800;font-size:18px;color:var(--gold-deep);background:var(--white)}
+.setup ol li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line-light);font-family:var(--display);font-weight:800;font-size:18px;color:var(--gold-deep);background:var(--paper)}
 .setup ol h3{margin:4px 0 4px;font-family:var(--display);font-weight:700;font-size:21px;color:var(--navy)}
 .setup ol p{margin:0;font-size:16px}
-.token{background:var(--white);border:1px solid var(--line-light);border-top:2px solid var(--gold-deep)}
+.token{background:var(--white);border:1px solid var(--line-light);border-top:2px solid var(--gold-deep);box-shadow:0 24px 50px -30px rgba(11,18,32,.35)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .token h3{margin:0;padding:22px 28px;font-family:var(--display);font-weight:700;font-size:20px;color:var(--navy);border-bottom:1px solid var(--line-light)}
 .token dl{margin:0;padding:6px 28px 14px}
 .token dl div{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line-light)}
@@ -204,9 +205,8 @@ a.btn.btn-gold{color:var(--on-gold)}
 
 /* faq */
 .faq{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:72px;align-items:start}
-.faq .head{position:sticky;top:120px;margin:0}
+.faq .head{position:sticky;top:110px;margin:0}
 .qa details{border-bottom:1px solid var(--line-light)}
-.qa details:first-child{border-top:1px solid var(--line-light)}
 .qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font-family:var(--display);font-weight:700;font-size:20px;color:var(--navy)}
 .qa summary::-webkit-details-marker{display:none}
 .qa summary::after{content:"";flex:none;width:11px;height:11px;border-right:1.5px solid var(--gold-deep);border-bottom:1.5px solid var(--gold-deep);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
@@ -236,6 +236,49 @@ a.btn.btn-gold{color:var(--on-gold)}
 .legal .copy{margin-top:8px;padding-top:20px;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 .legal .copy img{height:34px;width:auto}
 
+/* header: active section + phone menu */
+.site-nav a{position:relative;padding:6px 0}
+.site-nav a.active{color:var(--ink)}
+.site-nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:linear-gradient(90deg,var(--sheen-light),var(--gold),var(--sheen-dark))}
+.menu-btn{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line-dark);background:transparent;color:var(--ink);cursor:pointer;place-items:center}
+.menu-btn svg{width:20px;height:20px}
+.mobile-nav{display:none;background:var(--abyss);border-bottom:1px solid var(--line-dark)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:16px var(--gutter);border-top:1px solid var(--line-dark);color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
+.mobile-nav a.cta{color:var(--gold)}
+
+/* comparison */
+.compare{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line-light);font-size:16px}
+.compare th,.compare td{padding:20px 24px;text-align:left;border-bottom:1px solid var(--line-light);vertical-align:top}
+.compare thead th{font-family:var(--display);font-weight:700;font-size:17px;color:var(--navy);background:var(--paper-2)}
+.compare thead th.us{background:var(--navy);color:var(--ink)}
+.compare thead th.us span{display:flex;align-items:center;gap:10px}
+.compare thead th.us img{width:28px;height:28px}
+.compare tbody th{font-weight:600;color:var(--navy);width:26%}
+.compare td.us{background:rgba(226,190,114,.10);color:var(--navy);font-weight:500}
+.compare tr:last-child th,.compare tr:last-child td{border-bottom:0}
+.yes{display:inline-flex;align-items:center;gap:8px}
+.yes::before{content:"";width:16px;height:16px;flex:none;background:var(--gold-deep);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat}
+.table-scroll{overflow-x:auto}
+.compare-note{margin:16px 0 0;font-size:13px;color:var(--slate-dim)}
+
+/* faq groups + search */
+.faq-tools{margin-top:32px;display:grid;gap:18px}
+.faq-search{position:relative}
+.faq-search input{width:100%;height:52px;padding:0 16px 0 46px;border:1px solid var(--line-light);background:var(--white);font:inherit;font-size:16px;color:var(--navy)}
+.faq-search input:focus{outline:2px solid var(--gold-deep);outline-offset:0;border-color:transparent}
+.faq-search svg{position:absolute;left:16px;top:50%;width:18px;height:18px;transform:translateY(-50%);color:var(--slate-dim)}
+.faq-search label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.faq-topics{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.faq-topics a{display:flex;justify-content:space-between;padding:12px 16px;border-left:2px solid var(--line-light);color:var(--slate);text-decoration:none;font-weight:500}
+.faq-topics a:hover{border-left-color:var(--gold-deep);color:var(--navy)}
+.faq-topics small{color:var(--slate-dim);font-family:var(--mono)}
+.qa-group+.qa-group{margin-top:48px}
+.qa-group h3{margin:0 0 8px;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+.qa-group details:first-of-type{border-top:1px solid var(--line-light)}
+.qa-empty{display:none;padding:24px 0;color:var(--slate-dim)}
+.qa-group[hidden]{display:none}
+
 /* responsive */
 @media (max-width:1100px){
   .cols4{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -257,16 +300,20 @@ a.btn.btn-gold{color:var(--on-gold)}
   section{padding:80px 0}
   .site-nav{display:none}
   .site-header .btn{margin-left:auto}
+  .menu-btn{display:grid;margin-left:0}
+  .compare th,.compare td{padding:16px}
 }
 @media (max-width:560px){
   .cols4,.assure ul,.f-top{grid-template-columns:1fr}
   .assure li{border-left:0;padding-left:0;border-top:1px solid var(--line-light)}
   .assure li:first-child{border-top:0}
   .site-header .btn{display:none}
+  .menu-btn{margin-left:auto}
   .closing .right{flex-direction:column;align-items:flex-start;gap:24px}
   .closing img{width:110px;height:110px}
   .seals{gap:20px}
 }
+@media (min-width:961px){.mobile-nav.open{display:none}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .coin,.glint{animation:none}
@@ -283,18 +330,29 @@ a.btn.btn-gold{color:var(--on-gold)}
       <a href="#how">How it works</a>
       <a href="#earn">Earn</a>
       <a href="#spend">Spend</a>
+      <a href="#compare">Compare</a>
       <a href="#wallet">Wallet</a>
       <a href="#questions">FAQ</a>
     </nav>
     <a class="btn btn-gold" href="https://aeroassist.us">Join rewards<span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg></button>
   </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Main">
+    <a href="#how">How it works</a>
+    <a href="#earn">Earn</a>
+    <a href="#spend">Spend</a>
+    <a href="#compare">Compare</a>
+    <a href="#wallet">Wallet</a>
+    <a href="#questions">FAQ</a>
+    <a class="cta" href="https://aeroassist.us">Join rewards</a>
+  </nav>
 </header>
 
 <main id="top">
 
   <div class="hero light">
     <div class="hero-copy">
-      <p class="kicker" style="color:var(--gold-deep)">Digital store credit · On Base</p>
+      <p class="kicker">Digital store credit · On Base</p>
       <h1>Earn it. Hold it.<span class="g">Spend it at two companies.</span></h1>
       <p class="lead">AeroCoin is digital store credit worth $1.00 per coin<sup class="fn"><a href="#fn1" aria-label="Footnote 1">1</a></sup> toward products and services from AeroAssist Industries and AeroHome. Every coin you earn, send and spend is recorded on the Base blockchain.</p>
       <div class="actions">
@@ -444,7 +502,35 @@ a.btn.btn-gold{color:var(--on-gold)}
     </div>
   </section>
 
-  <section id="wallet" class="paper">
+  <section id="compare" class="paper">
+    <div class="wrap">
+      <div class="head split">
+        <div>
+          <p class="kicker">Compare</p>
+          <h2>How AeroCoin compares<span class="g">to gift cards and points.</span></h2>
+        </div>
+        <p class="intro">AeroCoin keeps what people like about gift cards, a fixed dollar value, and adds what points programs rarely offer: a balance you hold yourself and can share.</p>
+      </div>
+      <div class="table-scroll">
+        <table class="compare">
+          <thead>
+            <tr><th scope="col"><span class="sr-only"></span></th><th scope="col" class="us"><span><img src="assets/coin-128.png" alt="" width="28" height="28">AeroCoin</span></th><th scope="col">Typical gift card</th><th scope="col">Typical points program</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Value</th><td class="us"><span class="yes">Fixed at $1.00 of credit per coin</span></td><td>Fixed dollar amount</td><td>Set by the program and can change</td></tr>
+            <tr><th scope="row">Where you can use it</th><td class="us"><span class="yes">AeroAssist and AeroHome</span></td><td>Usually one store</td><td>Usually one program</td></tr>
+            <tr><th scope="row">Spend part of it</th><td class="us"><span class="yes">Down to one cent</span></td><td>Usually</td><td>Often in fixed blocks</td></tr>
+            <tr><th scope="row">Share with someone</th><td class="us"><span class="yes">Send any amount to any Base wallet</span></td><td>Hand over the whole card</td><td>Rarely allowed</td></tr>
+            <tr><th scope="row">Where the balance lives</th><td class="us"><span class="yes">In your own wallet, on a public ledger</span></td><td>In the issuer's system</td><td>In the program's account</td></tr>
+            <tr><th scope="row">Check your balance</th><td class="us"><span class="yes">Anytime, in your wallet or on Basescan</span></td><td>Through the issuer</td><td>By signing in to the program</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-note">Gift card and points columns describe common practice, not any particular company's program.</p>
+    </div>
+  </section>
+
+  <section id="wallet" class="light">
     <div class="wrap setup">
       <div>
         <div class="head">
@@ -492,22 +578,61 @@ a.btn.btn-gold{color:var(--on-gold)}
     </div>
   </section>
 
-  <section id="questions" class="light">
+  <section id="questions" class="paper">
     <div class="wrap faq">
       <div class="head">
         <p class="kicker">FAQ</p>
         <h2>Questions,<span class="g">answered.</span></h2>
-        <p class="intro">Something else on your mind? Ask us through the chat on aeroassist.us.</p>
+        <p class="intro">21 answers about earning, spending and holding AeroCoin. Something else on your mind? Ask us through the chat on aeroassist.us.</p>
+        <div class="faq-tools">
+          <div class="faq-search">
+            <label for="faq-q">Search questions</label>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="m13.2 13.2 4 4"/></svg>
+            <input id="faq-q" type="search" placeholder="Search questions" autocomplete="off">
+          </div>
+          <ul class="faq-topics">
+          <li><a href="#faq-basics">The basics<small>5</small></a></li>
+          <li><a href="#faq-earning">Earning and spending<small>5</small></a></li>
+          <li><a href="#faq-wallets">Wallets and transfers<small>6</small></a></li>
+          <li><a href="#faq-safety">Safety and legal<small>5</small></a></li>
+          </ul>
+        </div>
       </div>
       <div class="qa">
-        <details open><summary>What is AeroCoin?</summary><p>AeroCoin is digital store credit issued by AeroAssist Industries. You earn it, hold it in a wallet on the Base network, and spend it on products and services from AeroAssist Industries or AeroHome.</p></details>
-        <details><summary>What is one coin worth?</summary><p>One AeroCoin is always $1.00 of credit at AeroAssist or AeroHome. The value is fixed by AeroAssist and does not rise or fall.<sup class="fn"><a href="#fn1">1</a></sup></p></details>
-        <details><summary>Is AeroCoin an investment?</summary><p>No. AeroCoin is store credit for buying products and services. It gives you no ownership in, or share of the profits of, AeroAssist Industries or AeroHome, and AeroAssist does not buy it back or list it for trading.</p></details>
-        <details><summary>Can I turn AeroCoin into cash?</summary><p>No. AeroCoin is spent on products and services and has no cash value, except where the law requires otherwise.<sup class="fn"><a href="#fn1">1</a></sup></p></details>
-        <details><summary>How do I get AeroCoin?</summary><p>You earn it on purchases, through the AeroAssist rewards program and promotions, or receive it from another member's wallet.</p></details>
-        <details><summary>Can I send AeroCoin to someone?</summary><p>Yes, to anyone with a wallet on Base. The network charges a small fee, paid in ETH, which is set by the network and not by AeroAssist. Double-check the address before you send: transfers on a blockchain can't be undone.<sup class="fn"><a href="#fn2">2</a></sup></p></details>
-        <details><summary>What if I lose access to my wallet?</summary><p>Contact AeroAssist. After we verify your identity, we can move your full balance to a new wallet you control.<sup class="fn"><a href="#fn3">3</a></sup></p></details>
-        <details><summary>Where can I see AeroCoin on the blockchain?</summary><p>AeroCoin runs on the Base network, so every coin issued, sent and spent is publicly visible on Basescan, Base's block explorer.</p></details>
+        <div class="qa-group" id="faq-basics">
+          <h3>The basics</h3>
+          <details open><summary>What is AeroCoin?</summary><p>AeroCoin is digital store credit issued by AeroAssist Industries. You earn it, hold it in a wallet on the Base network, and spend it on products and services from AeroAssist Industries or AeroHome.</p></details>
+          <details><summary>What is one coin worth?</summary><p>One AeroCoin is always $1.00 of credit at AeroAssist or AeroHome. The value is set by AeroAssist and does not rise or fall.<sup class="fn"><a href="#fn1">1</a></sup></p></details>
+          <details><summary>Who issues AeroCoin?</summary><p>AeroAssist Industries, the Phoenix company that builds drone-as-first-responder aircraft. AeroHome, AeroAssist's home-security sister company, accepts AeroCoin at the same value.</p></details>
+          <details><summary>Is AeroCoin a cryptocurrency like Bitcoin?</summary><p>It uses the same kind of technology, a public blockchain, but it works very differently. Bitcoin's price moves with the market; AeroCoin is always $1.00 of credit, is issued only by AeroAssist, and is meant to be spent at two companies.</p></details>
+          <details><summary>Is AeroCoin an investment?</summary><p>No. AeroCoin is store credit for buying products and services. It gives you no ownership in, or share of the profits of, AeroAssist Industries or AeroHome, and AeroAssist does not buy it back or list it for trading.</p></details>
+        </div>
+        <div class="qa-group" id="faq-earning">
+          <h3>Earning and spending</h3>
+          <details><summary>How do I get AeroCoin?</summary><p>You earn it on purchases, through the AeroAssist rewards program and promotions, or receive it from another member's wallet.</p></details>
+          <details><summary>How do I spend AeroCoin?</summary><p>At checkout with AeroAssist or AeroHome, choose AeroCoin and approve the payment from your wallet. The coins you spend are retired on the spot, and the purchase is recorded against your order.</p></details>
+          <details><summary>Can I spend part of my balance?</summary><p>Yes. AeroCoin divides down to one cent, so you can apply any amount up to your balance.</p></details>
+          <details><summary>Can I use AeroCoin at other businesses?</summary><p>No. AeroCoin is accepted only by AeroAssist Industries and AeroHome.</p></details>
+          <details><summary>Can I turn AeroCoin into cash?</summary><p>No. AeroCoin is spent on products and services and has no cash value, except where the law requires otherwise.<sup class="fn"><a href="#fn1">1</a></sup></p></details>
+        </div>
+        <div class="qa-group" id="faq-wallets">
+          <h3>Wallets and transfers</h3>
+          <details><summary>What wallet do I need?</summary><p>Any wallet that supports the Base network, such as Coinbase Wallet or MetaMask. Keep your recovery phrase offline and never share it with anyone, including AeroAssist.</p></details>
+          <details><summary>How do I add AeroCoin to my wallet?</summary><p>Add it as a custom token on the Base network using the details in the Wallet section above, and your AeroCoin balance appears next to your other assets.</p></details>
+          <details><summary>Can I send AeroCoin to someone?</summary><p>Yes, any amount, to anyone with a wallet on Base. Double-check the address before you send: transfers on a blockchain can't be undone.<sup class="fn"><a href="#fn2">2</a></sup></p></details>
+          <details><summary>Are there any fees?</summary><p>AeroAssist doesn't charge you to earn, hold, send or spend AeroCoin. The Base network charges a small fee for each transaction, paid in ETH from your wallet; that fee is set by the network, not by AeroAssist.<sup class="fn"><a href="#fn2">2</a></sup></p></details>
+          <details><summary>What if I send AeroCoin to the wrong address?</summary><p>Blockchain transfers are final, so the coins go to whoever controls that address. AeroAssist may be unable to recover them, so always check the address first.<sup class="fn"><a href="#fn2">2</a></sup></p></details>
+          <details><summary>What if I lose access to my wallet?</summary><p>Contact AeroAssist. After we verify your identity, we can move your full balance to a new wallet you control.<sup class="fn"><a href="#fn3">3</a></sup></p></details>
+        </div>
+        <div class="qa-group" id="faq-safety">
+          <h3>Safety and legal</h3>
+          <details><summary>Is AeroCoin insured?</summary><p>No. AeroCoin is store credit, not a bank deposit, and is not insured by the FDIC or any government agency. AeroAssist Industries is not a bank.</p></details>
+          <details><summary>How is AeroCoin protected?</summary><p>Its rules live in its smart contract: a daily limit on new credit, a cap on total unspent credit, two-person approval for any setting change, an emergency pause, and retirement of every coin the moment it's spent.</p></details>
+          <details><summary>Can I buy or sell AeroCoin on an exchange?</summary><p>AeroAssist doesn't list AeroCoin on any exchange or buy it back. If someone else offers to buy or sell it, that price isn't set, endorsed or honored by AeroAssist; AeroCoin is always worth $1.00 of credit with us.<sup class="fn"><a href="#fn1">1</a></sup></p></details>
+          <details><summary>Where can I see AeroCoin on the blockchain?</summary><p>AeroCoin runs on the Base network, so every coin issued, sent and spent is publicly visible on Basescan, Base's block explorer.</p></details>
+          <details><summary>Can the AeroCoin program change?</summary><p>AeroAssist Industries may change, suspend or end the program, subject to applicable law. Changes are posted on this site.</p></details>
+        </div>
+        <p class="qa-empty" role="status">No questions match that search. Try another word, or ask us through the chat on aeroassist.us.</p>
       </div>
     </div>
   </section>
@@ -556,6 +681,27 @@ a.btn.btn-gold{color:var(--on-gold)}
 </footer>
 
 <script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),panel=document.getElementById('mobile-nav');
+  if(btn&&panel){
+    btn.addEventListener('click',function(){var open=panel.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Close menu':'Open menu');});
+    panel.addEventListener('click',function(e){if(e.target.tagName==='A'){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open menu');}});
+  }
+  var links=[].slice.call(document.querySelectorAll('.site-nav a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
+    links.forEach(function(a){var t=document.querySelector(a.getAttribute('href'));if(t)io.observe(t);});
+  }
+  var input=document.getElementById('faq-q');
+  if(input){
+    var groups=[].slice.call(document.querySelectorAll('.qa-group')),empty=document.querySelector('.qa-empty');
+    input.addEventListener('input',function(){
+      var term=input.value.trim().toLowerCase(),shown=0;
+      groups.forEach(function(g){var n=0;[].slice.call(g.querySelectorAll('details')).forEach(function(d){var hit=!term||d.textContent.toLowerCase().indexOf(term)>-1;d.hidden=!hit;if(hit){n++;if(term)d.open=true;}});g.hidden=n===0;shown+=n;});
+      empty.style.display=shown?'none':'block';
+    });
+  }
+})();
 (function(){
   var stage=document.querySelector('.coin-stage');
   if(!stage||!window.matchMedia||window.matchMedia('(prefers-reduced-motion: reduce)').matches||!window.matchMedia('(pointer: fine)').matches)return;
