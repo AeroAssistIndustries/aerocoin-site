@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AeroCoin: digital store credit for AeroAssist and AeroHome</title>
-<meta name="description" content="AeroCoin is digital store credit worth $1.00 per coin toward products and services from AeroAssist Industries and AeroHome, recorded on the Base blockchain.">
+<title>AeroCoin: the digital coin for AeroAssist and AeroHome</title>
+<meta name="description" content="AeroCoin is a digital coin from AeroAssist Industries. Each coin is worth $1.00 of credit at AeroAssist and AeroHome, lives in your wallet, and is recorded on the Base blockchain.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AeroCoin">
-<meta property="og:description" content="Digital store credit you earn and spend at AeroAssist and AeroHome. One coin is $1.00 of credit.">
+<meta property="og:description" content="A digital coin you earn, hold and spend at AeroAssist and AeroHome. One coin is $1.00 of credit.">
 <meta property="og:image" content="https://aeroassistindustries.github.io/aerocoin-site/assets/og.png">
 <meta property="og:url" content="https://aeroassistindustries.github.io/aerocoin-site/">
 <meta name="twitter:card" content="summary_large_image">
@@ -95,8 +95,14 @@ a.btn.btn-gold{color:var(--on-gold)}
 /* hero: light copy, dark coin panel */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:min(760px,calc(100vh - 76px));background:linear-gradient(180deg,#ffffff,var(--paper))}
 .hero-copy{padding:88px 64px 72px max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));display:flex;flex-direction:column;justify-content:center}
-.hero h1{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(42px,4.3vw,66px);line-height:.98;letter-spacing:-.015em;color:var(--navy)}
+.hero h1{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(40px,4vw,62px);line-height:.98;letter-spacing:-.015em;color:var(--navy)}
 .hero h1 .g{display:block;color:var(--gold-deep)}
+.hero h1 .name{display:block;font-size:1.32em;letter-spacing:.02em;text-transform:uppercase;background:var(--silver-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 0 rgba(0,0,0,.6))}
+.hero h1 .g{font-size:.62em;margin-top:10px;font-weight:700;letter-spacing:0}
+.chips{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--line-dark);background:rgba(14,18,26,.7);font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mist-dim)}
+.chips b{color:var(--ink);font-weight:600}
+.chips img{width:22px;height:22px}
 .hero .lead{margin:28px 0 0;max-width:540px;font-size:19px;line-height:1.6}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .hero .note{margin:20px 0 0;max-width:540px;font-size:13px;line-height:1.55;color:var(--slate-dim)}
@@ -121,6 +127,8 @@ a.btn.btn-gold{color:var(--on-gold)}
 @keyframes arrive{0%{transform:rotateY(-720deg) scale(.8);opacity:0}30%{opacity:1}100%{transform:rotateY(0) scale(1);opacity:1}}
 @keyframes fadein{0%,60%{opacity:0}100%{opacity:1}}
 .stage-caption{position:absolute;left:0;right:0;bottom:28px;display:flex;justify-content:center;gap:10px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist-dim)}
+.side-label{width:100%;text-align:center;margin-bottom:4px;color:var(--gold)}
+.stage-caption{flex-wrap:wrap}
 .stage-caption button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--mist);background:transparent;border:1px solid var(--line-dark);padding:8px 14px;cursor:pointer}
 .stage-caption button:hover{color:var(--ink);border-color:var(--mist-dim)}
 .stage-caption button[aria-pressed="true"]{color:var(--gold);border-color:rgba(226,190,114,.5)}
@@ -351,10 +359,11 @@ a.btn.btn-gold{color:var(--on-gold)}
 }
 @media (max-width:960px){
   .hero{grid-template-columns:1fr;min-height:0}
-  .hero-stage{order:-1;min-height:0;padding:64px 0 88px}
-  .coin-stage{width:min(320px,72%)}
-  .stage-hint{top:22px}
-  .stage-caption{bottom:24px}
+  .hero-stage{order:-1;min-height:0;padding:60px 0 120px}
+  .coin-stage{width:min(300px,70%);margin-bottom:12px}
+  .stage-hint{top:20px}
+  .stage-caption{bottom:18px;gap:8px}
+  .side-label{margin-bottom:2px}
   .hero-copy{padding:56px var(--gutter) 64px}
   .head.split,.how,.setup,.faq,.coinspec{grid-template-columns:1fr;gap:40px}
   .faq .head{position:static}
@@ -527,9 +536,15 @@ body.glow-on #glow{opacity:1}
 
   <div class="hero light">
     <div class="hero-copy">
-      <p class="kicker" data-n="">Digital store credit · On Base</p>
-      <h1>Earn it. Hold it.<span class="g">Spend it at two companies.</span></h1>
-      <p class="lead">AeroCoin is digital store credit worth $1.00 per coin<sup class="fn"><a href="#fn1" aria-label="Footnote 1">1</a></sup> toward products and services from AeroAssist Industries and AeroHome. Every coin you earn, send and spend is recorded on the Base blockchain.</p>
+      <p class="kicker" data-n="">A digital coin · Minted by AeroAssist</p>
+      <h1><span class="name">AeroCoin</span><span class="g">The coin you earn, hold and spend.</span></h1>
+      <p class="lead">AeroCoin is a digital coin from AeroAssist Industries. Each coin is worth $1.00 of credit<sup class="fn"><a href="#fn1" aria-label="Footnote 1">1</a></sup> at AeroAssist and AeroHome, lives in your own wallet, and is recorded on the Base blockchain.</p>
+      <ul class="chips" aria-label="Coin facts">
+        <li><img src="assets/coin-128.png" alt="" width="22" height="22"><b>AEROC</b> ticker</li>
+        <li><b>1 coin</b> = $1.00 of credit</li>
+        <li><b>Two-sided</b> front and back</li>
+        <li><b>On Base</b> blockchain</li>
+      </ul>
       <div class="actions">
         <a class="btn btn-gold" href="https://aeroassist.us">Join rewards<span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg></span></a>
         <a class="btn btn-plain" href="#how">How it works</a>
@@ -561,11 +576,11 @@ body.glow-on #glow{opacity:1}
         </div>
         <div class="coin-shadow" aria-hidden="true"></div>
       </div>
-      <div class="stage-caption"><button type="button" data-side="0" aria-pressed="true">Front</button><button type="button" data-side="180" aria-pressed="false">Back</button></div>
+      <div class="stage-caption"><span class="side-label" id="side-label" aria-live="polite">Front · The octocopter</span><button type="button" data-side="0" aria-pressed="true">Front</button><button type="button" data-side="180" aria-pressed="false">Back</button></div>
     </div>
   </div>
 
-  <div class="ticker" aria-hidden="true"><div class="track"><span>1 AEROC = $1.00 of credit</span><span>Earn it</span><span>Hold it</span><span>Spend it at AeroAssist</span><span>Spend it at AeroHome</span><span>Recorded on Base</span><span>Retired when spent</span><span>1 AEROC = $1.00 of credit</span><span>Earn it</span><span>Hold it</span><span>Spend it at AeroAssist</span><span>Spend it at AeroHome</span><span>Recorded on Base</span><span>Retired when spent</span></div></div>
+  <div class="ticker" aria-hidden="true"><div class="track"><span>AeroCoin is a digital coin</span><span>1 AEROC = $1.00 of credit</span><span>Earn it</span><span>Hold it</span><span>Spend it at AeroAssist</span><span>Spend it at AeroHome</span><span>Recorded on Base</span><span>Retired when spent</span><span>AeroCoin is a digital coin</span><span>1 AEROC = $1.00 of credit</span><span>Earn it</span><span>Hold it</span><span>Spend it at AeroAssist</span><span>Spend it at AeroHome</span><span>Recorded on Base</span><span>Retired when spent</span></div></div>
 
   <div class="light assure">
     <div class="wrap">
@@ -975,7 +990,7 @@ body.glow-on #glow{opacity:1}
   function apply(){coin.style.setProperty('--ry',ry.toFixed(2)+'deg');coin.style.setProperty('--rx',rx.toFixed(2)+'deg');
     var f=((ry%360)+360)%360; var gx=50+Math.sin(f*Math.PI/180)*-40; glint.style.setProperty('--gx',gx.toFixed(1)+'%');glint.style.setProperty('--gy',(30+rx).toFixed(1)+'%');
     var edge=Math.abs(Math.sin(f*Math.PI/180)); coin.style.setProperty('--foil',(0.06+edge*0.5).toFixed(2));
-    var front=f<90||f>270; buttons.forEach(function(b){b.setAttribute('aria-pressed',(b.dataset.side==='0')===front?'true':'false');});}
+    var front=f<90||f>270; buttons.forEach(function(b){b.setAttribute('aria-pressed',(b.dataset.side==='0')===front?'true':'false');});var sl=document.getElementById('side-label');if(sl)sl.textContent=front?'Front \u00b7 The octocopter':'Back \u00b7 One dollar of credit';}
   var buttons=[].slice.call(document.querySelectorAll('.stage-caption button'));
   coin.addEventListener('animationend',function(){coin.style.animation='none';apply();});
   if(reduce){coin.style.animation='none';}
@@ -992,7 +1007,8 @@ body.glow-on #glow{opacity:1}
   if(!reduce){var area=document.querySelector('.hero');area.addEventListener('pointermove',function(e){if(dragging)return;var r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;x=Math.max(-.8,Math.min(.8,x));y=Math.max(-.8,Math.min(.8,y));glint.style.setProperty('--gx',(50+x*60).toFixed(1)+'%');glint.style.setProperty('--gy',(50+y*60).toFixed(1)+'%');});}
   apply();
   var idleT;function idleOn(){if(reduce||dragging)return;coin.classList.add('idle');}function idleOff(){coin.classList.remove('idle');clearTimeout(idleT);idleT=setTimeout(idleOn,4000);}
-  coin.addEventListener('animationend',function(e){if(e.animationName==='arrive')idleOff();});
+  var touched=false;stage.addEventListener('pointerdown',function(){touched=true;},{once:true});
+  coin.addEventListener('animationend',function(e){if(e.animationName==='arrive'){setTimeout(function(){if(!touched&&!dragging)settleTo(180);},700);setTimeout(function(){if(!touched&&!dragging)settleTo(360);},2300);setTimeout(idleOff,3300);}});
   stage.addEventListener('pointerdown',idleOff);buttons.forEach(function(b){b.addEventListener('click',idleOff);});
   var cv=document.getElementById('sparks');
   if(cv&&!reduce&&cv.getContext){var ctx=cv.getContext('2d'),P=[],host=cv.parentElement;function size(){cv.width=host.clientWidth;cv.height=host.clientHeight;}size();window.addEventListener('resize',size);
