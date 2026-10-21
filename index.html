@@ -23,6 +23,8 @@
   --ink:#f4f6f8; --mist:#cdd2da; --mist-dim:#9aa1ad;
   --gold:#e2be72; --gold-hi:#f4e2b0; --sheen-light:#f7e8bc; --sheen-dark:#c9973f; --on-gold:#120c02;
   --edge:rgba(214,220,228,.13); --edge-gold:rgba(226,190,114,.42);
+  --silver-text:linear-gradient(180deg,#ffffff 0%,#e6eaef 38%,#9aa3ae 62%,#eef1f5 100%);
+  --silver-bar:linear-gradient(90deg,rgba(214,220,228,0),rgba(240,243,247,.55) 30%,rgba(154,163,174,.35) 60%,rgba(214,220,228,0));
   --display:Oxanium,"Arial Narrow",system-ui,sans-serif;
   --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -38,9 +40,9 @@ a:hover{color:var(--gold)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 var(--gutter)}
 
 /* header */
-.site-header{position:sticky;top:0;z-index:10;background:rgba(5,7,11,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--edge)}
+.site-header{position:sticky;top:0;z-index:10;background:rgba(5,7,11,.86);backdrop-filter:blur(10px);border-bottom:1px solid transparent;border-image:var(--silver-bar) 1}
 .site-header .wrap{display:flex;align-items:center;gap:32px;height:72px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.01em}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);background:var(--silver-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.01em}
 .brand img{width:36px;height:36px}
 .site-nav{display:flex;gap:28px;margin-left:auto}
 .site-nav a{color:var(--mist);text-decoration:none;font-size:15px}
@@ -50,23 +52,29 @@ a:hover{color:var(--gold)}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.04em;text-decoration:none;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
 .btn-gold{background:linear-gradient(135deg,var(--sheen-light),var(--gold) 45%,var(--sheen-dark));color:var(--on-gold)}
 .btn-gold:hover{color:var(--on-gold);filter:brightness(1.06)}
-.btn-line{color:var(--ink);background:var(--hull-2)}
-.btn-line:hover{color:var(--ink);background:#1d2330}
+.btn-line{color:#0b1220;background:linear-gradient(180deg,#f5f7fa,#c3cad3 48%,#8e97a3 52%,#dfe4ea)}
+.btn-line:hover{color:#0b1220;filter:brightness(1.07)}
 .site-header .btn{min-height:42px;padding:0 18px;font-size:14px}
 
 /* hero */
-.hero{position:relative;overflow:hidden;background:radial-gradient(60% 80% at 78% 45%,#151a24 0%,#0b0e15 45%,var(--abyss) 75%)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(42% 60% at 76% 42%,rgba(214,220,228,.10) 0%,transparent 60%),radial-gradient(60% 80% at 78% 45%,#151a24 0%,#0b0e15 45%,var(--abyss) 75%)}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:48px;min-height:min(680px,calc(100vh - 72px));padding-top:56px;padding-bottom:72px}
-.hero h1{margin:0;font-family:var(--display);font-weight:800;color:var(--ink);font-size:clamp(42px,5.6vw,76px);line-height:1;letter-spacing:-.015em;max-width:15ch;text-wrap:balance}
+.hero h1{margin:0;font-family:var(--display);font-weight:800;color:var(--ink);filter:drop-shadow(0 2px 0 rgba(0,0,0,.6));font-size:clamp(42px,5.6vw,76px);line-height:1;letter-spacing:-.015em;max-width:15ch;text-wrap:balance}
+.hero h1 span{background:var(--silver-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .hero .lead{margin:28px 0 0;font-size:clamp(18px,1.6vw,21px);line-height:1.55;max-width:34em}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .coin-stage{position:relative;justify-self:center;width:min(440px,80vw);aspect-ratio:1;perspective:1200px}
 .coin-stage::after{content:"";position:absolute;inset:8% 8% -6%;border-radius:50%;background:radial-gradient(closest-side,rgba(226,190,114,.16),transparent);z-index:-1}
+.tilt{position:relative;width:100%;height:100%;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;transition:transform .25s ease-out}
 .coin{width:100%;height:100%;filter:drop-shadow(0 40px 60px rgba(0,0,0,.85));animation:arrive 1.6s cubic-bezier(.2,.7,.2,1) both}
+.glint{position:absolute;inset:1%;border-radius:50%;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(circle at var(--gx,30%) var(--gy,25%),rgba(255,255,255,.38),rgba(255,255,255,.06) 28%,transparent 48%);animation:fadein 1.6s both}
+@keyframes fadein{0%,60%{opacity:0}100%{opacity:1}}
 @keyframes arrive{0%{transform:rotateY(-540deg) scale(.82);opacity:0}35%{opacity:1}100%{transform:rotateY(0) scale(1);opacity:1}}
 
 /* value line under hero */
-.terms{border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);background:var(--deep)}
+.terms{position:relative;background:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px),linear-gradient(180deg,#171c26,#0b0f16)}
+.terms::before,.terms::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--silver-bar)}
+.terms::before{top:0}.terms::after{bottom:0}
 .terms dl{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .terms dl>div{padding:28px 24px;border-left:1px solid var(--edge)}
 .terms dl>div:first-child{border-left:0;padding-left:0}
@@ -77,25 +85,26 @@ a:hover{color:var(--gold)}
 /* sections */
 section{padding:112px 0}
 .section-head{max-width:640px;margin-bottom:56px}
-.section-head h2{margin:0;font-family:var(--display);font-weight:800;color:var(--ink);font-size:clamp(34px,4.2vw,48px);line-height:1.05}
+.section-head h2{margin:0;font-family:var(--display);font-weight:800;color:var(--ink);background:var(--silver-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-size:clamp(34px,4.2vw,48px);line-height:1.05}
 .section-head p{margin:16px 0 0;font-size:18px}
 
 /* steps: a real sequence */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;counter-reset:step;position:relative}
-.steps::before{content:"";position:absolute;top:27px;left:28px;right:calc(33.333% - 28px);height:1px;background:linear-gradient(90deg,var(--sheen-light),var(--gold) 50%,var(--sheen-dark))}
+.steps::before{content:"";position:absolute;top:27px;left:28px;right:calc(33.333% - 28px);height:2px;background:linear-gradient(90deg,#eef1f5,#8e97a3 50%,#dfe4ea)}
 .steps li{position:relative;padding-right:40px;counter-increment:step}
-.steps li::before{content:counter(step);display:grid;place-items:center;width:56px;height:56px;margin-bottom:28px;background:var(--abyss);border:1px solid var(--edge-gold);border-radius:50%;font-family:var(--display);font-weight:800;font-size:22px;color:var(--gold);position:relative}
+.steps li::before{content:counter(step);display:grid;place-items:center;width:56px;height:56px;margin-bottom:28px;background:radial-gradient(circle,#121722 0 22px,transparent 22.5px),repeating-conic-gradient(rgba(20,24,32,.45) 0 6deg,rgba(255,255,255,.2) 6deg 12deg),conic-gradient(#f5f7fa,#8e97a3 25%,#eef1f5 50%,#7a838f 75%,#f5f7fa);box-shadow:0 6px 14px rgba(0,0,0,.6);border-radius:50%;font-family:var(--display);font-weight:800;font-size:22px;color:var(--gold);position:relative}
 .steps h3{margin:0;font-family:var(--display);font-weight:700;font-size:28px;color:var(--ink)}
 .steps p{margin:12px 0 0;max-width:30ch}
 
 /* where to spend */
-.spend{background:var(--deep);border-top:1px solid var(--edge)}
+.spend{position:relative;background:var(--deep)}
+.spend::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--silver-bar)}
 .merchants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.merchant{display:flex;flex-direction:column;background:var(--hull);border:1px solid var(--edge);overflow:hidden}
+.merchant{display:flex;flex-direction:column;border:1px solid transparent;background:linear-gradient(var(--hull),var(--hull)) padding-box,linear-gradient(160deg,rgba(245,247,250,.55),rgba(214,220,228,.08) 35%,rgba(214,220,228,.05) 65%,rgba(226,190,114,.45)) border-box;overflow:hidden}
 .merchant .photo{aspect-ratio:16/8;background:#0b0e15 center/cover no-repeat}
 .merchant .photo.aircraft{background-image:linear-gradient(180deg,rgba(14,18,26,0) 55%,var(--hull)),url(assets/aircraft.jpg)}
 .merchant .photo.home{display:grid;place-items:center;background:radial-gradient(70% 90% at 50% 60%,#151a24,#0b0e15)}
-.merchant .photo.home svg{width:120px;height:120px;color:var(--gold)}
+.merchant .photo.home svg{width:120px;height:120px;color:#dfe4ea}
 .merchant .body{padding:28px 32px 32px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
 .merchant h3{margin:0;font-family:var(--display);font-weight:700;font-size:30px;line-height:1.1;color:var(--ink)}
 .merchant p{margin:0}
@@ -131,7 +140,7 @@ section{padding:112px 0}
   .terms dl>div:nth-child(3){border-left:0;padding-left:0}
   .terms dl>div:nth-child(n+3){border-top:1px solid var(--edge)}
   .steps{grid-template-columns:1fr;gap:40px}
-  .steps::before{top:28px;bottom:28px;left:27px;right:auto;width:1px;height:auto;background:linear-gradient(180deg,var(--sheen-light),var(--gold) 50%,var(--sheen-dark))}
+  .steps::before{top:28px;bottom:28px;left:27px;right:auto;width:2px;height:auto;background:linear-gradient(180deg,#eef1f5,#8e97a3 50%,#dfe4ea)}
   .steps li{padding:0 0 0 84px}
   .steps li::before{position:absolute;left:0;top:-6px;margin:0}
   .merchants{grid-template-columns:1fr}
@@ -151,7 +160,8 @@ section{padding:112px 0}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .coin{animation:none}
+  .coin,.glint{animation:none}
+  .tilt{transition:none}
   .qa summary::after{transition:none}
 }
 </style>
@@ -174,7 +184,7 @@ section{padding:112px 0}
   <div class="hero">
     <div class="wrap">
       <div>
-        <h1>Store credit for AeroAssist and AeroHome.</h1>
+        <h1><span>Store credit for AeroAssist and AeroHome.</span></h1>
         <p class="lead">AeroCoin is credit you earn on purchases and rewards, then spend on products and services from either company. Every coin is worth $1.00 of credit, and your balance is recorded on the Base blockchain.</p>
         <div class="actions">
           <a class="btn btn-gold" href="https://aeroassist.us">Join AeroAssist rewards</a>
@@ -182,7 +192,10 @@ section{padding:112px 0}
         </div>
       </div>
       <div class="coin-stage">
-        <img class="coin" src="assets/coin-1024.png" alt="The AeroCoin: a gold A on a graphite coin with a gold rim" width="440" height="440">
+        <div class="tilt">
+          <img class="coin" src="assets/coin-1024.png" alt="The AeroCoin: a silver coin with a gold ring, an eight-rotor drone on its face and the gold AeroAssist A on the drone's hub" width="440" height="440">
+          <div class="glint" aria-hidden="true"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -310,5 +323,19 @@ section{padding:112px 0}
   </div>
 </footer>
 
+<script>
+(function(){
+  var stage=document.querySelector('.coin-stage');
+  if(!stage||!window.matchMedia||window.matchMedia('(prefers-reduced-motion: reduce)').matches||!window.matchMedia('(pointer: fine)').matches)return;
+  var tilt=stage.querySelector('.tilt'),glint=stage.querySelector('.glint'),hero=document.querySelector('.hero');
+  hero.addEventListener('pointermove',function(e){
+    var r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    x=Math.max(-.8,Math.min(.8,x));y=Math.max(-.8,Math.min(.8,y));
+    tilt.style.setProperty('--ry',(x*16).toFixed(2)+'deg');tilt.style.setProperty('--rx',(-y*16).toFixed(2)+'deg');
+    glint.style.setProperty('--gx',(50+x*60).toFixed(1)+'%');glint.style.setProperty('--gy',(50+y*60).toFixed(1)+'%');
+  });
+  hero.addEventListener('pointerleave',function(){tilt.style.setProperty('--ry','0deg');tilt.style.setProperty('--rx','0deg');});
+})();
+</script>
 </body>
 </html>
