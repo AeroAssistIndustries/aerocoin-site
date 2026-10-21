@@ -381,10 +381,87 @@ a.btn.btn-gold{color:var(--on-gold)}
   .rv,.rv-stagger>*{opacity:1;transform:none;transition:none}
   .coin3d.settle,.qa summary::after{transition:none}
 }
+
+/* ===== cosmic / holographic theme ===== */
+body{background:#030409}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.site-header,main,footer{position:relative;z-index:1}
+.light,.paper,.dark,.deep{background:transparent;color:var(--mist)}
+.light{background:linear-gradient(180deg,rgba(5,7,11,.55),rgba(5,7,11,.75))}
+.paper{background:radial-gradient(60% 50% at 20% 0%,rgba(226,190,114,.07),transparent 60%),radial-gradient(50% 60% at 90% 100%,rgba(91,237,226,.06),transparent 60%),rgba(8,11,17,.85)}
+.dark{background:rgba(5,7,11,.82)}
+.deep{background:rgba(8,11,17,.9)}
+.light h2,.paper h2,.dark h2,.deep h2{color:var(--ink)}
+.light h2 .g,.paper h2 .g,.dark h2 .g,.deep h2 .g{color:var(--gold);text-shadow:0 0 24px rgba(226,190,114,.35),0 0 2px rgba(226,190,114,.6)}
+.light .kicker,.paper .kicker{color:var(--gold)}
+.light a,.paper a{color:var(--gold-hi)}
+.hero{background:transparent}
+.hero-copy{background:linear-gradient(180deg,rgba(5,7,11,.35),rgba(5,7,11,.7))}
+.hero h1{color:var(--ink)}
+.hero h1 .g{color:var(--gold);text-shadow:0 0 28px rgba(226,190,114,.4)}
+.hero .lead{color:var(--mist)}
+.hero .note{color:var(--mist-dim)}
+.seals{border-top-color:var(--line-dark)}
+.seal b{color:var(--ink)}.seal small{color:var(--mist-dim)}
+.light a.btn-plain,.paper a.btn-plain{color:var(--ink);background:rgba(255,255,255,.04);border:1px solid var(--line-dark);backdrop-filter:blur(6px)}
+.light .btn-plain:hover,.paper .btn-plain:hover{border-color:var(--gold)}
+.hero-stage{background:radial-gradient(48% 58% at 50% 46%,rgba(226,190,114,.10),transparent 62%),radial-gradient(90% 90% at 50% 50%,rgba(21,26,36,.9) 0%,rgba(10,13,20,.85) 55%,rgba(3,4,9,.6) 100%)}
+.hero-stage::before{display:none}
+.hgrid{position:absolute;left:-20%;right:-20%;bottom:0;height:42%;pointer-events:none;background:linear-gradient(rgba(226,190,114,.0),rgba(226,190,114,.18)),repeating-linear-gradient(90deg,rgba(226,190,114,.22) 0 1px,transparent 1px 64px),repeating-linear-gradient(0deg,rgba(226,190,114,.22) 0 1px,transparent 1px 48px);transform:perspective(600px) rotateX(62deg);transform-origin:50% 100%;-webkit-mask:linear-gradient(180deg,transparent,#000 40%,#000 85%,transparent);mask:linear-gradient(180deg,transparent,#000 40%,#000 85%,transparent);opacity:.55}
+.hgrid::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 46px,rgba(91,237,226,.25) 47px 48px);animation:gridflow 6s linear infinite}
+@keyframes gridflow{to{transform:translateY(48px)}}
+.assure{background:rgba(5,7,11,.7);border-bottom:1px solid var(--line-dark)}
+.assure li{border-left-color:var(--line-dark)}
+.assure li:nth-child(n+3){border-top-color:var(--line-dark)}
+.assure svg{color:var(--gold)}.assure b{color:var(--ink)}.assure span{color:var(--mist-dim)}
+.feature,.card,.token,.compare,.setup ol li::before,.merchant,.guard,.wallet{background:rgba(14,18,26,.72);border-color:var(--line-dark);backdrop-filter:blur(8px)}
+.feature{border-top:2px solid var(--gold)}
+.feature svg,.card svg{color:var(--gold)}
+.feature h3,.card h3,.setup ol h3,.token h3,.compare thead th,.compare tbody th,.qa summary,.spec-list b{color:var(--ink)}
+.feature p,.card p,.setup ol p,.qa details p,.compare td{color:var(--mist)}
+.setup ol li::before{color:var(--gold)}
+.token{border-top:2px solid var(--gold)}
+.token h3,.token dl div{border-color:var(--line-dark)}
+.token dt{color:var(--mist-dim)}.token dd{color:var(--ink)}
+.token dd button{background:transparent;border-color:var(--line-dark);color:var(--mist-dim)}
+.compare thead th{background:rgba(21,26,36,.9)}
+.compare thead th.us{background:linear-gradient(135deg,rgba(226,190,114,.35),rgba(226,190,114,.12));color:var(--ink)}
+.compare th,.compare td{border-color:var(--line-dark)}
+.compare td.us{background:rgba(226,190,114,.08);color:var(--ink)}
+.yes::before{background:var(--gold)}
+.compare-note{color:var(--mist-dim)}
+.qa details{border-color:var(--line-dark)}.qa-group details:first-of-type{border-top-color:var(--line-dark)}
+.qa summary::after{border-color:var(--gold)}
+.qa-group h3{color:var(--gold)}
+.faq-search input{background:rgba(14,18,26,.8);border-color:var(--line-dark);color:var(--ink)}
+.faq-search input::placeholder{color:var(--mist-dim)}
+.faq-topics a{color:var(--mist);border-left-color:var(--line-dark)}.faq-topics a:hover{color:var(--ink);border-left-color:var(--gold)}
+.faq-topics small{color:var(--mist-dim)}
+.closing{background:radial-gradient(60% 80% at 50% 50%,rgba(226,190,114,.10),transparent 70%),rgba(5,7,11,.85)}
+.site-footer{background:rgba(5,7,11,.92)}
+.ticker{background:rgba(11,18,32,.85);backdrop-filter:blur(6px)}
+
+/* holographic foil */
+.holo{position:relative;overflow:hidden;--mx:50%;--my:50%}
+.holo::before{content:"";position:absolute;inset:-1px;pointer-events:none;border-radius:inherit;padding:1px;background:conic-gradient(from calc(var(--ang,0) * 1deg) at var(--mx) var(--my),#ff7a7a,#ffd36b,#8dff8d,#6be7ff,#b58dff,#ff8dd6,#ff7a7a);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.35;transition:opacity .3s}
+.holo::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(240px circle at var(--mx) var(--my),rgba(255,255,255,.12),transparent 60%),linear-gradient(115deg,transparent 30%,rgba(255,122,122,.08) 40%,rgba(255,211,107,.10) 45%,rgba(141,255,141,.08) 50%,rgba(107,231,255,.10) 55%,rgba(181,141,255,.08) 60%,transparent 70%);background-size:100% 100%,250% 250%;background-position:0 0,var(--fx,50%) 50%;mix-blend-mode:screen;opacity:0;transition:opacity .35s}
+.holo:hover::before{opacity:.9}.holo:hover::after{opacity:1}
+.holo>*{position:relative;z-index:1}
+.foil{position:absolute;inset:0;z-index:2;border-radius:50%;pointer-events:none;mix-blend-mode:overlay;opacity:var(--foil,.06);background:conic-gradient(from calc(var(--ry,0deg) * 2) at var(--gx,50%) var(--gy,40%),rgba(255,122,122,.55),rgba(255,211,107,.55),rgba(141,255,141,.55),rgba(107,231,255,.55),rgba(181,141,255,.55),rgba(255,141,214,.55),rgba(255,122,122,.55));-webkit-mask:radial-gradient(circle,#000 0 60%,transparent 62%);mask:radial-gradient(circle,#000 0 60%,transparent 62%)}
+.face3d .foil{transform:translateZ(2px)}
+.coin3d .foil{animation:fadein 1.8s both}
+/* HUD corner brackets on cards */
+.hud{position:relative}
+.hud::before,.hud::after{content:"";position:absolute;width:14px;height:14px;border:1.5px solid var(--gold);pointer-events:none;opacity:.8;z-index:2}
+.hud::before{top:8px;left:8px;border-right:0;border-bottom:0}
+.hud::after{bottom:8px;right:8px;border-left:0;border-top:0}
+.stage-caption button{background:rgba(5,7,11,.6);backdrop-filter:blur(6px)}
+@media (prefers-reduced-motion:reduce){.hgrid::after{animation:none}}
 </style>
 </head>
 <body>
 
+<canvas id="stars" aria-hidden="true"></canvas>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="AeroCoin home"><img src="assets/coin-128.png" alt="" width="38" height="38"><span>AeroCoin</span></a>
@@ -430,13 +507,14 @@ a.btn.btn-gold{color:var(--on-gold)}
       </div>
     </div>
     <div class="hero-stage">
+      <div class="hgrid" aria-hidden="true"></div>
       <p class="stage-hint">Drag to spin · Tap to flip</p>
       <canvas class="sparks" id="sparks" aria-hidden="true"></canvas>
       <div class="coin-stage" id="coin-stage" style="--t:22px">
         <div class="coin3d" id="coin3d">
           <div class="edge3d" style="--z:-11px"></div><div class="edge3d" style="--z:-8px"></div><div class="edge3d" style="--z:-5px"></div><div class="edge3d" style="--z:-2px"></div><div class="edge3d" style="--z:1px"></div><div class="edge3d" style="--z:4px"></div><div class="edge3d" style="--z:7px"></div><div class="edge3d" style="--z:10px"></div>
-          <div class="face3d front"><img src="assets/coin-1024.png" alt="AeroCoin, front: a platinum coin with an engraved gold ring, an eight-rotor drone and the gold AeroAssist A on its hub" width="470" height="470"></div>
-          <div class="face3d back"><img src="assets/coin-reverse-1024.png" alt="AeroCoin, back: a large gold 1, the words One dollar of store credit, Phoenix, Arizona, 2026" width="470" height="470"></div>
+          <div class="face3d front"><img src="assets/coin-1024.png" alt="AeroCoin, front: a platinum coin with an engraved gold ring, an eight-rotor drone and the gold AeroAssist A on its hub" width="470" height="470"><div class="foil" aria-hidden="true"></div></div>
+          <div class="face3d back"><img src="assets/coin-reverse-1024.png" alt="AeroCoin, back: a large gold 1, the words One dollar of store credit, Phoenix, Arizona, 2026" width="470" height="470"><div class="foil" aria-hidden="true"></div></div>
           <div class="glint" aria-hidden="true"></div>
         </div>
         <div class="coin-shadow" aria-hidden="true"></div>
@@ -468,17 +546,17 @@ a.btn.btn-gold{color:var(--on-gold)}
         <p class="intro">Gift cards and points live in someone else's database. AeroCoin lives in your own wallet, keeps the same value every day, and shows every movement on a public ledger.</p>
       </div>
       <div class="rv-stagger cols3">
-        <article class="feature">
+        <article class="feature holo hud">
           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="8"/><path d="M16 11v10M13 14h6"/></svg>
           <h3>One coin, one dollar of credit</h3>
           <p>The value is set by AeroAssist and doesn't move with any market. Ten coins is always $10.00 off at AeroAssist or AeroHome.<sup class="fn"><a href="#fn1">1</a></sup></p>
         </article>
-        <article class="feature">
+        <article class="feature holo hud">
           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="8" width="22" height="16" rx="1"/><path d="M5 13h22M21 18.5h2.5"/></svg>
           <h3>Yours to hold and share</h3>
           <p>Coins sit in a wallet you control on the Base network. Check your balance anytime, or send coins to family and friends.<sup class="fn"><a href="#fn2">2</a></sup></p>
         </article>
-        <article class="feature">
+        <article class="feature holo hud">
           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 25h20M9 25V13M16 25V9M23 25V16"/></svg>
           <h3>Visible from start to finish</h3>
           <p>Each coin is created when you earn it and retired the moment you spend it. Anyone can see the totals on the public ledger.</p>
@@ -500,7 +578,7 @@ a.btn.btn-gold{color:var(--on-gold)}
           <li><h3>Spend</h3><p>Use them at checkout with AeroAssist or AeroHome. Each coin takes $1.00 off and is retired once it's spent.</p></li>
         </ol>
       </div>
-      <aside class="wallet rv" aria-label="Example AeroCoin wallet">
+      <aside class="wallet rv holo hud" aria-label="Example AeroCoin wallet">
         <header><b>AeroCoin wallet</b><span>Example</span></header>
         <div class="balance">
           <img id="wb-coin" src="assets/coin-128.png" alt="" width="64" height="64">
@@ -535,10 +613,10 @@ a.btn.btn-gold{color:var(--on-gold)}
         <p class="intro">Coins arrive in your wallet as you do business with AeroAssist and AeroHome, and members can pass them along to each other.</p>
       </div>
       <div class="rv-stagger cols4">
-        <article class="card"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6h3l2.5 12h12L24 9H8.2"/><circle cx="11" cy="22.5" r="1.5"/><circle cx="20" cy="22.5" r="1.5"/></svg><h3>Purchases</h3><p>Earn coins when you buy from AeroAssist or AeroHome.</p></article>
-        <article class="card"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="7" width="20" height="14" rx="1"/><path d="M4 11h20"/><circle cx="18.5" cy="16.5" r="1.8"/></svg><h3>Rewards program</h3><p>Members of AeroAssist rewards collect coins as part of their membership.</p></article>
-        <article class="card"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 4l2.6 5.6 6 .7-4.5 4.1 1.2 6L14 17.4 8.7 20.4l1.2-6L5.4 10.3l6-.7Z"/></svg><h3>Promotions</h3><p>Bonus coins from launches, events and limited-time offers.</p></article>
-        <article class="card"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="11" width="18" height="12"/><path d="M4 8h20v3H4zM14 8v15M14 8c-1.5-3-6-3.5-6-1s6 1 6 1c1.5-3 6-3.5 6-1s-6 1-6 1"/></svg><h3>Gifts</h3><p>Receive coins from another member's wallet, for any amount.<sup class="fn"><a href="#fn2">2</a></sup></p></article>
+        <article class="card holo"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6h3l2.5 12h12L24 9H8.2"/><circle cx="11" cy="22.5" r="1.5"/><circle cx="20" cy="22.5" r="1.5"/></svg><h3>Purchases</h3><p>Earn coins when you buy from AeroAssist or AeroHome.</p></article>
+        <article class="card holo"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="7" width="20" height="14" rx="1"/><path d="M4 11h20"/><circle cx="18.5" cy="16.5" r="1.8"/></svg><h3>Rewards program</h3><p>Members of AeroAssist rewards collect coins as part of their membership.</p></article>
+        <article class="card holo"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 4l2.6 5.6 6 .7-4.5 4.1 1.2 6L14 17.4 8.7 20.4l1.2-6L5.4 10.3l6-.7Z"/></svg><h3>Promotions</h3><p>Bonus coins from launches, events and limited-time offers.</p></article>
+        <article class="card holo"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="11" width="18" height="12"/><path d="M4 8h20v3H4zM14 8v15M14 8c-1.5-3-6-3.5-6-1s6 1 6 1c1.5-3 6-3.5 6-1s-6 1-6 1"/></svg><h3>Gifts</h3><p>Receive coins from another member's wallet, for any amount.<sup class="fn"><a href="#fn2">2</a></sup></p></article>
       </div>
     </div>
   </section>
@@ -553,7 +631,7 @@ a.btn.btn-gold{color:var(--on-gold)}
         <p class="intro">AeroCoin is accepted at the same $1.00 per coin by both companies. Apply it at checkout and the coins are retired.</p>
       </div>
       <div class="rv-stagger merchants">
-        <article class="merchant">
+        <article class="merchant holo">
           <div class="photo aircraft" role="img" aria-label="An AeroAssist octocopter on the apron outside the Phoenix facility"></div>
           <div class="body">
             <span class="tag">Drone as first responder</span>
@@ -562,7 +640,7 @@ a.btn.btn-gold{color:var(--on-gold)}
             <a class="more" href="https://aeroassist.us">Visit aeroassist.us</a>
           </div>
         </article>
-        <article class="merchant">
+        <article class="merchant holo">
           <div class="photo home">
             <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true">
               <path d="M24 58 60 28l36 30"/><path d="M32 52v40h56V52"/>
@@ -621,7 +699,7 @@ a.btn.btn-gold{color:var(--on-gold)}
           <li><div><h3>Join rewards</h3><p>Give AeroAssist your wallet address when you join rewards or make a purchase, and your coins arrive there.</p></div></li>
         </ol>
       </div>
-      <div class="token rv">
+      <div class="token rv holo hud">
         <h3>Token details</h3>
         <dl>
           <div><dt>Name</dt><dd>AeroCoin</dd></div>
@@ -683,12 +761,12 @@ a.btn.btn-gold{color:var(--on-gold)}
         <p class="intro">AeroCoin's rules are written into its smart contract on Base, so they apply to every coin, every time.</p>
       </div>
       <div class="rv-stagger guards">
-        <article class="guard"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 3v20M3 13h20"/><circle cx="13" cy="13" r="9"/></svg><h3>Daily issuing limit</h3><p>New credit can only be created up to a set amount each day.</p></article>
-        <article class="guard"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 21h18M6 21V8h14v13"/><path d="M10 13h6"/></svg><h3>Total credit cap</h3><p>The amount of unspent credit outstanding at any time has a fixed ceiling.</p></article>
-        <article class="guard"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="10" r="3.5"/><circle cx="17" cy="10" r="3.5"/><path d="M3 21c.5-3.3 3-5 6-5s5.5 1.7 6 5M11 21c.5-3.3 3-5 6-5s5.5 1.7 6 5"/></svg><h3>Two-person approval</h3><p>Changes to AeroCoin's settings need sign-off from more than one keyholder.</p></article>
-        <article class="guard"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="6" width="4" height="14"/><rect x="15" y="6" width="4" height="14"/></svg><h3>Emergency pause</h3><p>If something looks wrong, activity can be paused while it's resolved.</p></article>
-        <article class="guard"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 13a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg><h3>Lost-wallet recovery</h3><p>If you lose access to your wallet, your balance can be moved to a new one after we verify it's you.<sup class="fn"><a href="#fn3">3</a></sup></p></article>
-        <article class="guard"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 13h16M13 5l8 8-8 8"/></svg><h3>Retired when spent</h3><p>Every coin spent is destroyed on the spot, so credit can never be used twice.</p></article>
+        <article class="guard holo"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 3v20M3 13h20"/><circle cx="13" cy="13" r="9"/></svg><h3>Daily issuing limit</h3><p>New credit can only be created up to a set amount each day.</p></article>
+        <article class="guard holo"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 21h18M6 21V8h14v13"/><path d="M10 13h6"/></svg><h3>Total credit cap</h3><p>The amount of unspent credit outstanding at any time has a fixed ceiling.</p></article>
+        <article class="guard holo"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="10" r="3.5"/><circle cx="17" cy="10" r="3.5"/><path d="M3 21c.5-3.3 3-5 6-5s5.5 1.7 6 5M11 21c.5-3.3 3-5 6-5s5.5 1.7 6 5"/></svg><h3>Two-person approval</h3><p>Changes to AeroCoin's settings need sign-off from more than one keyholder.</p></article>
+        <article class="guard holo"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="6" width="4" height="14"/><rect x="15" y="6" width="4" height="14"/></svg><h3>Emergency pause</h3><p>If something looks wrong, activity can be paused while it's resolved.</p></article>
+        <article class="guard holo"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 13a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg><h3>Lost-wallet recovery</h3><p>If you lose access to your wallet, your balance can be moved to a new one after we verify it's you.<sup class="fn"><a href="#fn3">3</a></sup></p></article>
+        <article class="guard holo"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 13h16M13 5l8 8-8 8"/></svg><h3>Retired when spent</h3><p>Every coin spent is destroyed on the spot, so credit can never be used twice.</p></article>
       </div>
     </div>
   </section>
@@ -797,6 +875,12 @@ a.btn.btn-gold{color:var(--on-gold)}
 
 <script>
 (function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv=document.getElementById('stars');
+  if(cv&&cv.getContext){var ctx=cv.getContext('2d'),S=[],W,H,sy=0;function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;S=[];var n=Math.round(W*H/5000);for(var i=0;i<n;i++)S.push({x:Math.random()*W,y:Math.random()*H,z:Math.random(),r:Math.random()*1.3+.2,ph:Math.random()*6.28,c:Math.random()<.12?'226,190,114':(Math.random()<.5?'205,210,218':'91,237,226')});}size();addEventListener('resize',size);
+    function draw(t){ctx.clearRect(0,0,W,H);var off=(window.scrollY||0);for(var i=0;i<S.length;i++){var q=S[i];var y=(q.y-off*(0.08+q.z*0.25))%H;if(y<0)y+=H;var a=reduce?.6:(.35+.45*Math.abs(Math.sin(t/1400+q.ph)));ctx.beginPath();ctx.arc(q.x,y,q.r*(0.6+q.z*0.8),0,6.28);ctx.fillStyle='rgba('+q.c+','+(a*(.4+q.z*.6)).toFixed(2)+')';ctx.fill();}if(!reduce)requestAnimationFrame(draw);}
+    draw(0);if(reduce)addEventListener('scroll',function(){draw(0);});}
+  if(!reduce&&matchMedia('(pointer: fine)').matches){document.querySelectorAll('.holo').forEach(function(el){el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();var x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.style.setProperty('--mx',(x*100).toFixed(1)+'%');el.style.setProperty('--my',(y*100).toFixed(1)+'%');el.style.setProperty('--fx',(x*100).toFixed(1)+'%');el.style.setProperty('--ang',(x*360).toFixed(0));});});}
   var els=[].slice.call(document.querySelectorAll('.rv,.rv-stagger'));
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e);});}else{els.forEach(function(e){e.classList.add('in');});}
   var amt=document.getElementById('wb-amt'),usd=document.getElementById('wb-usd'),list=document.getElementById('wb-list'),coinImg=document.getElementById('wb-coin'),toast=document.getElementById('wallet-toast');
@@ -844,6 +928,7 @@ a.btn.btn-gold{color:var(--on-gold)}
   var glint=coin.querySelector('.glint');
   function apply(){coin.style.setProperty('--ry',ry.toFixed(2)+'deg');coin.style.setProperty('--rx',rx.toFixed(2)+'deg');
     var f=((ry%360)+360)%360; var gx=50+Math.sin(f*Math.PI/180)*-40; glint.style.setProperty('--gx',gx.toFixed(1)+'%');glint.style.setProperty('--gy',(30+rx).toFixed(1)+'%');
+    var edge=Math.abs(Math.sin(f*Math.PI/180)); coin.style.setProperty('--foil',(0.06+edge*0.5).toFixed(2));
     var front=f<90||f>270; buttons.forEach(function(b){b.setAttribute('aria-pressed',(b.dataset.side==='0')===front?'true':'false');});}
   var buttons=[].slice.call(document.querySelectorAll('.stage-caption button'));
   coin.addEventListener('animationend',function(){coin.style.animation='none';apply();});
