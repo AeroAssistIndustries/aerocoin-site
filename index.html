@@ -164,8 +164,8 @@ a.btn.btn-gold{color:var(--on-gold)}
 
 /* the coin section */
 .coinspec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center}
-.coinspec figure{margin:0;position:relative}
-.coinspec figure img{width:min(520px,100%);margin:0 auto;filter:drop-shadow(0 40px 60px rgba(0,0,0,.85))}
+.coinspec figure{margin:0;position:relative;min-width:0}
+.coinspec figure img{width:min(520px,100%);height:auto;margin:0 auto;filter:drop-shadow(0 40px 60px rgba(0,0,0,.85))}
 .spec-list{list-style:none;margin:0;padding:0;display:grid}
 .spec-list li{display:grid;grid-template-columns:40px 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--line-dark)}
 .spec-list li:last-child{border-bottom:1px solid var(--line-dark)}
@@ -278,7 +278,7 @@ a.btn.btn-gold{color:var(--on-gold)}
 .closing{position:relative;overflow:hidden;padding:96px 0}
 .closing .wrap{display:flex;align-items:center;justify-content:space-between;gap:48px}
 .closing h2{max-width:16ch}
-.closing img{width:150px;height:150px;flex:none;filter:drop-shadow(0 24px 40px rgba(0,0,0,.8))}
+.closing img{width:150px;height:auto;flex:none;filter:drop-shadow(0 24px 40px rgba(0,0,0,.8))}
 .closing .right{display:flex;align-items:center;gap:40px}
 
 /* footer */
@@ -337,7 +337,7 @@ a.btn.btn-gold{color:var(--on-gold)}
 .qa-group+.qa-group{margin-top:48px}
 .qa-group h3{margin:0 0 8px;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
 .qa-group details:first-of-type{border-top:1px solid var(--line-light)}
-.qa-empty{display:none;padding:24px 0;color:var(--slate-dim)}
+.qa-empty{display:none;padding:24px 0;color:var(--mist)}
 .qa-group[hidden]{display:none}
 
 /* responsive */
@@ -367,6 +367,8 @@ a.btn.btn-gold{color:var(--on-gold)}
   .compare th,.compare td{padding:16px}
 }
 @media (max-width:560px){
+  .compare th,.compare td{min-width:150px}.compare tbody th{min-width:120px}
+  .table-scroll{position:relative}.table-scroll::after{content:"Swipe to compare";display:block;margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist-dim)}
   .cols4,.assure ul,.f-top{grid-template-columns:1fr}
   .assure li{border-left:0;padding-left:0;border-top:1px solid var(--line-light)}
   .assure li:first-child{border-top:0}
@@ -451,7 +453,6 @@ body{background:#030409}
 .holo>*{position:relative;z-index:1}
 .foil{position:absolute;inset:0;z-index:2;border-radius:50%;pointer-events:none;mix-blend-mode:overlay;opacity:var(--foil,.06);background:conic-gradient(from calc(var(--ry,0deg) * 2) at var(--gx,50%) var(--gy,40%),rgba(255,122,122,.55),rgba(255,211,107,.55),rgba(141,255,141,.55),rgba(107,231,255,.55),rgba(181,141,255,.55),rgba(255,141,214,.55),rgba(255,122,122,.55));-webkit-mask:radial-gradient(circle,#000 0 60%,transparent 62%);mask:radial-gradient(circle,#000 0 60%,transparent 62%)}
 .face3d .foil{transform:translateZ(2px)}
-.coin3d .foil{animation:fadein 1.8s both}
 /* HUD corner brackets on cards */
 .hud{position:relative}
 .hud::before,.hud::after{content:"";position:absolute;width:14px;height:14px;border:1.5px solid var(--gold);pointer-events:none;opacity:.8;z-index:2}
@@ -482,6 +483,12 @@ body{background:#030409}
 #glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(226,190,114,.07),transparent 60%);opacity:0;transition:opacity .4s;mix-blend-mode:screen}
 body.glow-on #glow{opacity:1}
 @media (max-width:960px){.hud-panel{display:none}.orbit{display:none}}
+@media (pointer:coarse){.foil{opacity:calc(var(--foil,.06) * .7)}
+  .stage-caption button,.wallet .try button,.coin-tabs button,.faq-topics a{min-height:44px}
+  .token dd button{width:40px;height:40px}
+  .f-col a,.merchant .more,.site-nav a{display:inline-block;padding:10px 0}
+  .brand{min-height:44px}
+  .qa summary{min-height:44px}}
 @media (prefers-reduced-motion:reduce){.hgrid::after,.orbit .sat,.hud-panel .dot{animation:none}#glow{display:none}}
 </style>
 </head>
@@ -921,7 +928,7 @@ body.glow-on #glow{opacity:1}
     draw(0);if(reduce)addEventListener('scroll',function(){draw(0);});}
   if(!reduce&&matchMedia('(pointer: fine)').matches){document.querySelectorAll('.holo').forEach(function(el){el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();var x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.style.setProperty('--mx',(x*100).toFixed(1)+'%');el.style.setProperty('--my',(y*100).toFixed(1)+'%');el.style.setProperty('--fx',(x*100).toFixed(1)+'%');el.style.setProperty('--ang',(x*360).toFixed(0));});});}
   var els=[].slice.call(document.querySelectorAll('.rv,.rv-stagger'));
-  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e);});function sweep(){var y=scrollY+innerHeight;els.forEach(function(e){if(!e.classList.contains('in')&&e.getBoundingClientRect().top+scrollY<y)e.classList.add('in');});}addEventListener('scroll',sweep,{passive:true});setTimeout(sweep,1200);}else{els.forEach(function(e){e.classList.add('in');});}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e);});function sweep(){var y=scrollY+innerHeight;els.forEach(function(e){if(!e.classList.contains('in')&&e.getBoundingClientRect().top+scrollY<y)e.classList.add('in');});}addEventListener('scroll',sweep,{passive:true});setTimeout(sweep,1200);var sw=setInterval(sweep,600);setTimeout(function(){clearInterval(sw);},12000);}else{els.forEach(function(e){e.classList.add('in');});}
   var amt=document.getElementById('wb-amt'),usd=document.getElementById('wb-usd'),list=document.getElementById('wb-list'),coinImg=document.getElementById('wb-coin'),toast=document.getElementById('wallet-toast');
   if(amt){var bal=125,initial=list.innerHTML,icons={plus:'<path d="M8 3v10M3 8h10"/>',minus:'<path d="M3 8h10"/>',send:'<path d="M3 8h9M8.5 4l4 4-4 4"/>'};
     function fmt(n){return n.toFixed(2);}
